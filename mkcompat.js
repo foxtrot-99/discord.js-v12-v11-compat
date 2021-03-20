@@ -49,6 +49,7 @@ TextChannel.prototype.sendMessage = function sendMessage(msg) {
 };
 
 TextChannel.prototype.sendEmbed = function sendEmbed(embed, content, options) {
+	// from DJS11's /structures/interface/TextBasedChannel.js
 	if(!options && typeof content === 'object' && !(content instanceof Array)) {
 		options = content;
 		content = '';
@@ -59,11 +60,13 @@ TextChannel.prototype.sendEmbed = function sendEmbed(embed, content, options) {
 };
 
 TextChannel.prototype.sendFiles = function sendFiles(files, content, options) {
+	// from DJS11's /structures/interface/TextBasedChannel.js
 	options = options || {};
 	return this.send(content, Object.assign(options, { files }));
 }
 
 TextChannel.prototype.sendFile = function sendFile(attachment, name, content, options) {
+	// from DJS11's /structures/interface/TextBasedChannel.js
 	options = options || {};
 	return this.send({ files: [{ attachment, name }], content, options });
 }
